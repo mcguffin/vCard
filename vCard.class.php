@@ -81,8 +81,8 @@ class vCard
     public function set($key, $value)
     {
         // Check if the specified property is defined.
-        if (property_exists($this, $key) && $key != 'data') {
-            $this->{$key} = trim($value);
+        if (array_key_exists( $key , $this->data) && $key != 'data') {
+            $this->data[$key] = trim($value);
             return $this;
         } elseif (property_exists($this, $key) && $key == 'data') {
             foreach ($value as $v_key => $v_value) {
